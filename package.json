@@ -1,0 +1,22 @@
+{
+  "name": "schooled",
+  "version": "0.0.1",
+  "description": "Test Enviroment for new concept",
+  "main": "server.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "author": "BlkHrt",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "imap": "^0.8.19",
+    "imap-simple": "^5.0.0",
+    "libmime": "^5.0.0",
+    "mongoose": "^5.12.9",
+    "node": "^16.1.0",
+    "react-native-mailcore": "^0.1.1",
+    "utf8": "^3.0.0"
+  }
+}
