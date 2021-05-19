@@ -18,9 +18,10 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.get('/',(req,res)=>{
     
-    var query = req.query
+    var query = req.url   
     res.send('Hello')
     res.send(query)
+    
 })
 app.post('/getMail',(req,res)=>{
     if(req.body){
