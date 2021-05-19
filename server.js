@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express();
-
+const gmail = require('./index')
 const Imap = require('imap')
 var libmime = require('libmime')
-
+var Url = require('url-parse')
 var listresult=[];
 const port = process.env.PORT||3000;
 const { inspect } = require('util');
+const { url } = require('inspector');
 sinspect = require('util').inspect;
 var result=null
 var final='oka'
@@ -16,7 +17,10 @@ var flag=false;
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.get('/',(req,res)=>{
+    
+    var query = req.query
     res.send('Hello')
+    res.send(query)
 })
 app.post('/getMail',(req,res)=>{
     if(req.body){

@@ -11,12 +11,15 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "googleapis": "^73.0.0",
     "imap": "^0.8.19",
     "imap-simple": "^5.0.0",
     "libmime": "^5.0.0",
     "mongoose": "^5.12.9",
     "node": "^16.1.0",
     "react-native-mailcore": "^0.1.1",
-    "utf8": "^3.0.0"
+    "url-parse": "^1.5.1",
+    "utf8": "^3.0.0",
+    "xoauth2": "^1.2.0"
   }
 }
