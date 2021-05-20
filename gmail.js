@@ -4,7 +4,7 @@ const readline = require('readline');
 const {google} = require('googleapis');
 
 var oAuth2Client=''
-var result
+var result=[];
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 const TOKEN_PATH = 'token.json';    
 async function intialize(callback){
@@ -44,7 +44,10 @@ fs.readFile('credentials.json',(err,data)=>{
  }
  function getMailList(auth,callback){
     const gmail = google.gmail({version: 'v1', auth});
-     gmail.users.messages.list({userId:'me'},(err,res)=>{res.data.forEach(message=>gmail.users.messages.get({id:message.id},(err,res=>{console.log(res.data)})))})
+     gmail.users.messages.list({userId:'me'},(err,res)=>{result=res.data.messages
+        gmail.users.messages.get({userId:'me',id:result[0]},(err,res)=>{console.log(res)})
+        
+    })
 }
     
 
