@@ -45,7 +45,7 @@ fs.readFile('credentials.json',(err,data)=>{
  function getMailList(auth,callback){
     const gmail = google.gmail({version: 'v1', auth});
      gmail.users.messages.list({userId:'me'},(err,res)=>{result=res.data.messages
-        gmail.users.messages.get({userId:'me',id:result[0]},(err,res)=>{console.log(res)})
+        gmail.users.messages.get({userId:'me',id:result.id[0]},(err,res)=>{console.log(res)})
         
     })
 }
