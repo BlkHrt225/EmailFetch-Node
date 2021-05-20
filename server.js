@@ -1,19 +1,23 @@
 const express = require('express')
 const app = express();
-const gmail = require('./index')
+const fs = require('fs')
+//const gmail = require('./index')
 const Imap = require('imap')
 var libmime = require('libmime')
 var Url = require('url-parse')
 var listresult=[];
+const {google} = require('googleapis')
 const port = process.env.PORT||3000;
-const { inspect } = require('util');
+const { inspect, isRegExp } = require('util');
 const { url } = require('inspector');
-sinspect = require('util').inspect;
-var result=null
+const { content } = require('googleapis/build/src/apis/content');
+const gmail = require('./gmail')
+
 var final='oka'
 var email='';
 var pass='';
 var flag=false;
+var credentials=''
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.get('/',(req,res)=>{
@@ -21,25 +25,23 @@ app.get('/',(req,res)=>{
        
     res.send('Hello')
     app.get('/pk',(req,res)=>{
-      res.send(req.query.code)
+      gmail.newToken(req.query.code)
     })
     
 })
-app.post('/getMail',(req,res)=>{
-    if(req.body){
-        email=req.body.email;
-        pass=req.body.password;
+app.get('/getMail',(req,res)=>{
+       
+gmail.intialize(result=>res.redirect(result))
       
-       start().then(response=>{final=response
-        res.send(final)
+     
     
-    }).catch(err=>res.send(err))
+    })
     
 
         
-    }
     
-})
+    
+
 
 
 app.post('/getMailList',(req,res)=>{
