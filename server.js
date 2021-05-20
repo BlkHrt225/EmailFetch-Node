@@ -16,19 +16,24 @@ const gmail = require('./gmail')
 var final='oka'
 var email='';
 var pass='';
+var mailist=[];
 var flag=false;
 var credentials=''
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.get('/',(req,res)=>{
-    
+
        
     res.send('Hello')
-    app.get('/pk',(req,res)=>{
-      gmail.newToken(req.query.code)
+  })
+app.get('/pk',(req,res)=>{
+      gmail.newToken(req.query.code,result=>res.send(result))
+      
     })
-    
-})
+app.get('/ok',(req,res)=>{
+  res.send(mailist)
+})    
+
 app.get('/getMail',(req,res)=>{
        
 gmail.intialize(result=>res.redirect(result))
