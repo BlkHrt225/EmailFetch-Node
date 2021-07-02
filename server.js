@@ -22,7 +22,8 @@ var credentials=''
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.get('/',(req,res)=>{
-
+      console.log(req.query)
+      console.log(req.params)
        
     res.send('Hello')
   })
