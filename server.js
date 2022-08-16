@@ -52,18 +52,21 @@ gmail.intialize(result=>res.redirect(result))
 
 
 app.post('/getMailList',(req,res)=>{
-    if(req.body){
-        email=req.body.email;
-        pass=req.body.password;
+  console.log(req.body)
+  console.log(req)
+  res.send('helo');
+//     if(req.body){
+//         email=req.body.email;
+//         pass=req.body.password;
       
-       startlist().then(response=>{final=response
-        res.send(final)
+//        startlist().then(response=>{final=response
+//         res.send(final)
     
-    }).catch(err=>res.send(err))
+//     }).catch(err=>res.send(err))
     
 
         
-    }
+//     }
     
 })
 
